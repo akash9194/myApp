@@ -1,0 +1,32 @@
+<h3>Employee screen</h3>
+<ul>
+    <li><a routerLink= "feedback">New Feedback</a></li>
+    <li><a routerLink= "../list">List</a></li>
+</ul>
+
+<form [formGroup]="feedbackForm">
+    <div>
+    <label>employee name</label><input type ="text" formControlName="empName">
+    
+    </div>
+    <div>
+        <label>employee id</label><input type ="text" formControlName="empId">
+        </div>
+        <div>
+            <label>Project</label>
+            <select formControlName="project">
+                <option *ngFor="let project of projectList" value="{{project.value}}">{{project.name}}</option>
+              </select>
+            
+            <!-- <input type ="text" formControlName="project"> -->
+            </div>
+            <div>
+                <label>Rate</label><input type ="text" formControlName="rate">
+                </div>
+            <div>
+                <label>Comments</label><input type ="text" formControlName="commnets">
+                </div>
+        </form>
+        <button [disabled]="feedbackForm.invalid" (click)="cancel()">Cancel</button>
+        <button [disabled]="feedbackForm.invalid" (click)="submit()">Submit</button>
+    

@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th *ngFor="let header of columnHeadings">{{header.heading}}</th>
+  </tr>
+  <tr *ngFor="let managerFb of managerFeedbackList">
+    <td>{{managerFb.empId}}</td>
+    <td>{{managerFb.empName}}</td>
+    <td>{{managerFb.projectempName}}</td>
+    <td>{{managerFb.rating}}</td>
+    <td>{{managerFb.comments}}</td>
+    <td>{{managerFb.mgrRating}}</td>
+    <td>{{managerFb.mgrComments}}</td>
+    <td><button (click)="updateFeedback(managerFb)">edit</button> <button
+        (click)="deleteFeedback(managerFb.id)">delete</button></td>
+  </tr>
+</table>
+<form [formGroup]="updateForm">
+<div>
+  <label>manager rating</label>
+  <input type="text" formControlName = "mgrRating">
+</div>
+<div>
+  <label>manager comments</label>
+  <input type="text" formControlName = "mgrCommnts">
+</div>
+</form>

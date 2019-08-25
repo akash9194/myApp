@@ -1,0 +1,14 @@
+
+<div *ngIf="flag">Your login attempted failed</div>
+<h2>Login</h2>
+<form [formGroup]="loginForm">
+<div>
+<label>user name</label><input type ="text" formControlName="userName">
+
+</div>
+<div>
+    <label>password</label><input type ="password" formControlName="password">
+    </div>
+    </form>
+
+    <button [disabled]="loginForm.invalid" (click)="login()">Login</button>
